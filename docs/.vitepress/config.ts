@@ -11,14 +11,14 @@ export default defineConfig({
     siteTitle: '英语学习框架',
     nav: [
       { text: '首页', link: '/' },
-      { text: '零基础课程', link: '/course/' },
+      { text: '英语课程', link: '/course/' },
       { text: '开始之前', link: '/guide/start' },
       { text: '学习阶段', link: '/guide/stage-0' },
       { text: '工具与专题', link: '/guide/toolbox' }
     ],
     sidebar: [
       {
-        text: '零基础课程',
+        text: '英语课程',
         items: [
           { text: '课程总览', link: '/course/' },
           {
@@ -51,6 +51,69 @@ export default defineConfig({
               { text: '第 7 课 · 疑问句', link: '/course/a1/unit-07' },
               { text: '第 8 课 · 数字、时间与星期', link: '/course/a1/unit-08' },
               { text: '第 9 课 · 综合复习与毕业自测', link: '/course/a1/unit-09' }
+            ]
+          },
+          {
+            text: 'A2 课程 · 积累期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/a2/' },
+              { text: '第 1 课 · 现在进行时', link: '/course/a2/unit-01' },
+              { text: '第 2 课 · 一般过去时（一）', link: '/course/a2/unit-02' },
+              { text: '第 3 课 · 一般过去时（二）', link: '/course/a2/unit-03' },
+              { text: '第 4 课 · 将来时 will 与 be going to', link: '/course/a2/unit-04' },
+              { text: '第 5 课 · 频率副词', link: '/course/a2/unit-05' },
+              { text: '第 6 课 · 可数与不可数', link: '/course/a2/unit-06' },
+              { text: '第 7 课 · 比较级与最高级', link: '/course/a2/unit-07' },
+              { text: '第 8 课 · 介词：时间与地点', link: '/course/a2/unit-08' },
+              { text: '第 9 课 · A2 综合复习与毕业自测', link: '/course/a2/unit-09' }
+            ]
+          },
+          {
+            text: 'B1 课程 · 成长期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/b1/' },
+              { text: '第 1 课 · 现在完成时（一）', link: '/course/b1/unit-01' },
+              { text: '第 2 课 · 现在完成时（二）', link: '/course/b1/unit-02' },
+              { text: '第 3 课 · 过去进行时', link: '/course/b1/unit-03' },
+              { text: '第 4 课 · 条件句（一）', link: '/course/b1/unit-04' },
+              { text: '第 5 课 · 条件句（二）', link: '/course/b1/unit-05' },
+              { text: '第 6 课 · should、must、have to', link: '/course/b1/unit-06' },
+              { text: '第 7 课 · 连词', link: '/course/b1/unit-07' },
+              { text: '第 8 课 · 不定式与动名词', link: '/course/b1/unit-08' },
+              { text: '第 9 课 · 短语动词入门', link: '/course/b1/unit-09' },
+              { text: '第 10 课 · 定语从句', link: '/course/b1/unit-10' },
+              { text: '第 11 课 · B1 综合复习与毕业自测', link: '/course/b1/unit-11' }
+            ]
+          },
+          {
+            text: 'B2 课程 · 突破期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/b2/' },
+              { text: '第 1 课 · 过去完成时', link: '/course/b2/unit-01' },
+              { text: '第 2 课 · 第三条件句与遗憾', link: '/course/b2/unit-02' },
+              { text: '第 3 课 · 间接引语', link: '/course/b2/unit-03' },
+              { text: '第 4 课 · 被动语态', link: '/course/b2/unit-04' },
+              { text: '第 5 课 · 推测情态', link: '/course/b2/unit-05' },
+              { text: '第 6 课 · 冠词系统', link: '/course/b2/unit-06' },
+              { text: '第 7 课 · 高级不定式与动名词', link: '/course/b2/unit-07' },
+              { text: '第 8 课 · B2 综合复习与毕业自测', link: '/course/b2/unit-08' }
+            ]
+          },
+          {
+            text: 'C1 课程 · 精进期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/c1/' },
+              { text: '第 1 课 · 倒装', link: '/course/c1/unit-01' },
+              { text: '第 2 课 · 分裂句', link: '/course/c1/unit-02' },
+              { text: '第 3 课 · 省略与替代', link: '/course/c1/unit-03' },
+              { text: '第 4 课 · 名词化', link: '/course/c1/unit-04' },
+              { text: '第 5 课 · 语域控制', link: '/course/c1/unit-05' },
+              { text: '第 6 课 · hedging 与话语标记', link: '/course/c1/unit-06' },
+              { text: '第 7 课 · C1 综合复习与毕业自测', link: '/course/c1/unit-07' }
             ]
           }
         ]
