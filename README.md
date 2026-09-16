@@ -2,7 +2,7 @@
 
 面向中国成人自学者的英语学习完整指南站点：**学习框架（路线图）+ 零基础课程（真教学内容）**，基于二语习得（SLA）科学研究。
 
-在线访问：https://<你的用户名>.github.io/english-study-guide/ （部署完成后替换此链接）
+在线访问：https://1648298170.github.io/english-study-guide/
 
 ## 站点内容
 
@@ -38,7 +38,7 @@ npm run docs:preview
 
 **首次启用步骤**：仓库 `Settings → Pages → Source` 选择 **GitHub Actions**。
 
-部署地址：`https://<用户名>.github.io/english-study-guide/`
+部署地址：`https://1648298170.github.io/english-study-guide/`
 （构建配置中的 `base` 已按仓库名 `english-study-guide` 设置；若仓库改名，请同步修改 `docs/.vitepress/config.ts` 的 base）
 
 ## 目录结构
