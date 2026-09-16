@@ -1,0 +1,22 @@
+/* 中文字体栈：优先系统中文字体，回退到默认 UI 字体 */
+:root {
+  --vp-font-family-base:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC',
+    'Noto Sans CJK SC', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 首页标题渐变强调色 */
+.vp-hero-name .clip {
+  background: linear-gradient(120deg, #2c6e63 10%, #3a8fff 55%, #9d5bd2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 首页 hero 区域微调 */
+.VPHero .text {
+  color: var(--vp-c-text-2);
+  border-top: none;
+  padding-top: 6px;
+}
