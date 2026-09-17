@@ -7,6 +7,11 @@ export default defineConfig({
   title: '英语学习框架',
   description:
     '面向中国成人自学者的英语学习完整路线图：基于二语习得（SLA）科学研究，从零基础到 B2/C1 的多年期可执行计划，含七个学习阶段、词汇战略、语法顺序、资源工具箱与大陆无障碍方案。',
+
+  markdown: {
+    lineNumbers: true
+  },
+
   themeConfig: {
     siteTitle: '英语学习框架',
     nav: [
@@ -157,6 +162,11 @@ export default defineConfig({
       prev: '上一页',
       next: '下一页'
     },
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '目录',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
     search: {
       provider: 'local',
       options: {
