@@ -43,104 +43,8 @@ export default defineConfig({
             ]
           },
           {
-            text: '词性课 · 英语的十种词',
-            collapsed: false,
-            items: [
-              { text: '课程说明', link: '/course/pos/' },
-              { text: '第 1 课 · 词类地图', link: '/course/pos/unit-01' },
-              { text: '第 2 课 · 名词', link: '/course/pos/unit-02' },
-              { text: '第 3 课 · 动词', link: '/course/pos/unit-03' },
-              { text: '第 4 课 · 形容词', link: '/course/pos/unit-04' },
-              { text: '第 5 课 · 副词', link: '/course/pos/unit-05' },
-              { text: '第 6 课 · 代词与冠词', link: '/course/pos/unit-06' },
-              { text: '第 7 课 · 介词与连词', link: '/course/pos/unit-07' },
-              { text: '第 8 课 · 数词感叹词与总结', link: '/course/pos/unit-08' },
-              { text: '第 9 课 · 构词入门：变身术', link: '/course/pos/unit-09' },
-              { text: '第 10 课 · 综合实战：标注与完形', link: '/course/pos/unit-10' }
-            ]
-          },
-          {
-            text: 'A1 课程 · 入门英语',
-            collapsed: false,
-            items: [
-              { text: '课程说明', link: '/course/a1/' },
-              { text: '第 1 课 · be 动词', link: '/course/a1/unit-01' },
-              { text: '第 2 课 · 人称与物主代词', link: '/course/a1/unit-02' },
-              { text: '第 3 课 · 单复数与 a/an', link: '/course/a1/unit-03' },
-              { text: '第 4 课 · there be 存在句', link: '/course/a1/unit-04' },
-              { text: '第 5 课 · 一般现在时', link: '/course/a1/unit-05' },
-              { text: '第 6 课 · can', link: '/course/a1/unit-06' },
-              { text: '第 7 课 · 疑问句', link: '/course/a1/unit-07' },
-              { text: '第 8 课 · 数字、时间与星期', link: '/course/a1/unit-08' },
-              { text: '第 9 课 · 综合复习与毕业自测', link: '/course/a1/unit-09' }
-            ]
-          },
-          {
-            text: 'A2 课程 · 积累期',
-            collapsed: true,
-            items: [
-              { text: '课程说明', link: '/course/a2/' },
-              { text: '第 1 课 · 现在进行时', link: '/course/a2/unit-01' },
-              { text: '第 2 课 · 一般过去时（一）', link: '/course/a2/unit-02' },
-              { text: '第 3 课 · 一般过去时（二）', link: '/course/a2/unit-03' },
-              { text: '第 4 课 · 将来时 will 与 be going to', link: '/course/a2/unit-04' },
-              { text: '第 5 课 · 频率副词', link: '/course/a2/unit-05' },
-              { text: '第 6 课 · 可数与不可数', link: '/course/a2/unit-06' },
-              { text: '第 7 课 · 比较级与最高级', link: '/course/a2/unit-07' },
-              { text: '第 8 课 · 介词：时间与地点', link: '/course/a2/unit-08' },
-              { text: '第 9 课 · A2 综合复习与毕业自测', link: '/course/a2/unit-09' }
-            ]
-          },
-          {
-            text: 'B1 课程 · 成长期',
-            collapsed: true,
-            items: [
-              { text: '课程说明', link: '/course/b1/' },
-              { text: '第 1 课 · 现在完成时（一）', link: '/course/b1/unit-01' },
-              { text: '第 2 课 · 现在完成时（二）', link: '/course/b1/unit-02' },
-              { text: '第 3 课 · 过去进行时', link: '/course/b1/unit-03' },
-              { text: '第 4 课 · 条件句（一）', link: '/course/b1/unit-04' },
-              { text: '第 5 课 · 条件句（二）', link: '/course/b1/unit-05' },
-              { text: '第 6 课 · should、must、have to', link: '/course/b1/unit-06' },
-              { text: '第 7 课 · 连词', link: '/course/b1/unit-07' },
-              { text: '第 8 课 · 不定式与动名词', link: '/course/b1/unit-08' },
-              { text: '第 9 课 · 短语动词入门', link: '/course/b1/unit-09' },
-              { text: '第 10 课 · 定语从句', link: '/course/b1/unit-10' },
-              { text: '第 11 课 · B1 综合复习与毕业自测', link: '/course/b1/unit-11' }
-            ]
-          },
-          {
-            text: 'B2 课程 · 突破期',
-            collapsed: true,
-            items: [
-              { text: '课程说明', link: '/course/b2/' },
-              { text: '第 1 课 · 过去完成时', link: '/course/b2/unit-01' },
-              { text: '第 2 课 · 第三条件句与遗憾', link: '/course/b2/unit-02' },
-              { text: '第 3 课 · 间接引语', link: '/course/b2/unit-03' },
-              { text: '第 4 课 · 被动语态', link: '/course/b2/unit-04' },
-              { text: '第 5 课 · 推测情态', link: '/course/b2/unit-05' },
-              { text: '第 6 课 · 冠词系统', link: '/course/b2/unit-06' },
-              { text: '第 7 课 · 高级不定式与动名词', link: '/course/b2/unit-07' },
-              { text: '第 8 课 · B2 综合复习与毕业自测', link: '/course/b2/unit-08' }
-            ]
-          },
-          {
-            text: 'C1 课程 · 精进期',
-            collapsed: true,
-            items: [
-              { text: '课程说明', link: '/course/c1/' },
-              { text: '第 1 课 · 倒装', link: '/course/c1/unit-01' },
-              { text: '第 2 课 · 分裂句', link: '/course/c1/unit-02' },
-              { text: '第 3 课 · 省略与替代', link: '/course/c1/unit-03' },
-              { text: '第 4 课 · 名词化', link: '/course/c1/unit-04' },
-              { text: '第 5 课 · 语域控制', link: '/course/c1/unit-05' },
-              { text: '第 6 课 · hedging 与话语标记', link: '/course/c1/unit-06' },
-              { text: '第 7 课 · C1 综合复习与毕业自测', link: '/course/c1/unit-07' }
-            ]
-          },
-          {
             text: '词根词缀课 · 词汇的偏旁部首',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: '课程说明', link: '/course/roots/' },
               { text: '第 1 课 · 入门：两个世界', link: '/course/roots/unit-01' },
@@ -158,22 +62,123 @@ export default defineConfig({
             ]
           },
           {
-            text: '句子拆解课 · 长难句与翻译',
-            collapsed: true,
+            text: '词性课 · 英语的十种词',
+            collapsed: false,
             items: [
-              { text: '课程说明', link: '/course/parsing/' },
-              { text: '第 1 课 · 句子的骨架与血肉', link: '/course/parsing/unit-01' },
-              { text: '第 2 课 · 拆句五步法', link: '/course/parsing/unit-02' },
-              { text: '第 3 课 · 并列结构', link: '/course/parsing/unit-03' },
-              { text: '第 4 课 · 定语从句拆解', link: '/course/parsing/unit-04' },
-              { text: '第 5 课 · 状语与介词短语', link: '/course/parsing/unit-05' },
-              { text: '第 6 课 · 名词性从句', link: '/course/parsing/unit-06' },
-              { text: '第 7 课 · 非谓语动词', link: '/course/parsing/unit-07' },
-              { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
-              { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
-              { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
+              { text: '课程说明', link: '/course/pos/' },
+              { text: '第 1 课 · 词类地图', link: '/course/pos/unit-01' },
+              { text: '第 2 课 · 名词', link: '/course/pos/unit-02' },
+              { text: '第 3 课 · 动词', link: '/course/pos/unit-03' },
+              { text: '第 4 课 · 形容词', link: '/course/pos/unit-04' },
+              { text: '第 5 课 · 副词', link: '/course/pos/unit-05' },
+              { text: '第 6 课 · 代词与冠词', link: '/course/pos/unit-06' },
+              { text: '第 7 课 · 介词与连词', link: '/course/pos/unit-07' },
+              { text: '第 8 课 · 数词感叹词与总结', link: '/course/pos/unit-08' },
+              { text: '第 9 课 · 构词入门：变身术', link: '/course/pos/unit-09' },
+              { text: '第 10 课 · 综合实战：标注与完形', link: '/course/pos/unit-10' }
             ]
           }
+        ]
+      },
+      {
+        text: '学习阶段（语法主线）',
+        items: [
+          {
+            text: '阶段 1 · A1 课程 · 入门英语',
+            collapsed: false,
+            items: [
+              { text: '课程说明', link: '/course/a1/' },
+              { text: '第 1 课 · be 动词', link: '/course/a1/unit-01' },
+              { text: '第 2 课 · 人称与物主代词', link: '/course/a1/unit-02' },
+              { text: '第 3 课 · 单复数与 a/an', link: '/course/a1/unit-03' },
+              { text: '第 4 课 · there be 存在句', link: '/course/a1/unit-04' },
+              { text: '第 5 课 · 一般现在时', link: '/course/a1/unit-05' },
+              { text: '第 6 课 · can', link: '/course/a1/unit-06' },
+              { text: '第 7 课 · 疑问句', link: '/course/a1/unit-07' },
+              { text: '第 8 课 · 数字、时间与星期', link: '/course/a1/unit-08' },
+              { text: '第 9 课 · 综合复习与毕业自测', link: '/course/a1/unit-09' }
+            ]
+          },
+          {
+            text: '阶段 2 · A2 课程 · 积累期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/a2/' },
+              { text: '第 1 课 · 现在进行时', link: '/course/a2/unit-01' },
+              { text: '第 2 课 · 一般过去时（一）', link: '/course/a2/unit-02' },
+              { text: '第 3 课 · 一般过去时（二）', link: '/course/a2/unit-03' },
+              { text: '第 4 课 · 将来时 will 与 be going to', link: '/course/a2/unit-04' },
+              { text: '第 5 课 · 频率副词', link: '/course/a2/unit-05' },
+              { text: '第 6 课 · 可数与不可数', link: '/course/a2/unit-06' },
+              { text: '第 7 课 · 比较级与最高级', link: '/course/a2/unit-07' },
+              { text: '第 8 课 · 介词：时间与地点', link: '/course/a2/unit-08' },
+              { text: '第 9 课 · A2 综合复习与毕业自测', link: '/course/a2/unit-09' }
+            ]
+          },
+          {
+            text: '阶段 3 · B1 课程 · 成长期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/b1/' },
+              { text: '第 1 课 · 现在完成时（一）', link: '/course/b1/unit-01' },
+              { text: '第 2 课 · 现在完成时（二）', link: '/course/b1/unit-02' },
+              { text: '第 3 课 · 过去进行时', link: '/course/b1/unit-03' },
+              { text: '第 4 课 · 条件句（一）', link: '/course/b1/unit-04' },
+              { text: '第 5 课 · 条件句（二）', link: '/course/b1/unit-05' },
+              { text: '第 6 课 · should、must、have to', link: '/course/b1/unit-06' },
+              { text: '第 7 课 · 连词', link: '/course/b1/unit-07' },
+              { text: '第 8 课 · 不定式与动名词', link: '/course/b1/unit-08' },
+              { text: '第 9 课 · 短语动词入门', link: '/course/b1/unit-09' },
+              { text: '第 10 课 · 定语从句', link: '/course/b1/unit-10' },
+              { text: '第 11 课 · B1 综合复习与毕业自测', link: '/course/b1/unit-11' }
+            ]
+          },
+          {
+            text: '阶段 4 · B2 课程 · 突破期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/b2/' },
+              { text: '第 1 课 · 过去完成时', link: '/course/b2/unit-01' },
+              { text: '第 2 课 · 第三条件句与遗憾', link: '/course/b2/unit-02' },
+              { text: '第 3 课 · 间接引语', link: '/course/b2/unit-03' },
+              { text: '第 4 课 · 被动语态', link: '/course/b2/unit-04' },
+              { text: '第 5 课 · 推测情态', link: '/course/b2/unit-05' },
+              { text: '第 6 课 · 冠词系统', link: '/course/b2/unit-06' },
+              { text: '第 7 课 · 高级不定式与动名词', link: '/course/b2/unit-07' },
+              { text: '第 8 课 · B2 综合复习与毕业自测', link: '/course/b2/unit-08' }
+            ]
+          },
+          {
+            text: '阶段 5 · C1 课程 · 精进期',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/c1/' },
+              { text: '第 1 课 · 倒装', link: '/course/c1/unit-01' },
+              { text: '第 2 课 · 分裂句', link: '/course/c1/unit-02' },
+              { text: '第 3 课 · 省略与替代', link: '/course/c1/unit-03' },
+              { text: '第 4 课 · 名词化', link: '/course/c1/unit-04' },
+              { text: '第 5 课 · 语域控制', link: '/course/c1/unit-05' },
+              { text: '第 6 课 · hedging 与话语标记', link: '/course/c1/unit-06' },
+              { text: '第 7 课 · C1 综合复习与毕业自测', link: '/course/c1/unit-07' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '句子拆解课 · 长难句与翻译',
+        collapsed: true,
+        items: [
+          { text: '课程说明', link: '/course/parsing/' },
+          { text: '第 1 课 · 句子的骨架与血肉', link: '/course/parsing/unit-01' },
+          { text: '第 2 课 · 拆句五步法', link: '/course/parsing/unit-02' },
+          { text: '第 3 课 · 并列结构', link: '/course/parsing/unit-03' },
+          { text: '第 4 课 · 定语从句拆解', link: '/course/parsing/unit-04' },
+          { text: '第 5 课 · 状语与介词短语', link: '/course/parsing/unit-05' },
+          { text: '第 6 课 · 名词性从句', link: '/course/parsing/unit-06' },
+          { text: '第 7 课 · 非谓语动词', link: '/course/parsing/unit-07' },
+          { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
+          { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
+          { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
         ]
       },
       {
@@ -185,7 +190,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '学习阶段',
+        text: '框架 · 阶段详解',
         items: [
           { text: '阶段 0 · 启蒙期', link: '/guide/stage-0' },
           { text: '阶段 1 · 地基期', link: '/guide/stage-1' },
