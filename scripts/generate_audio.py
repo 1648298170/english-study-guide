@@ -60,6 +60,15 @@ SECTIONS: dict[str, dict] = {
         # sentences must NOT get audio — their fragments are not words.
         "whole_cell_only": True,
     },
+    "pos": {
+        "lesson_dir": REPO_ROOT / "docs" / "course" / "pos",
+        "lesson_glob": "unit-*.md",
+        "out_dir": REPO_ROOT / "docs" / "public" / "audio" / "pos",
+        "letters": False,
+        # same rule as roots: only whole-cell single English words (生词表
+        # first column); in-cell example sentences stay clean
+        "whole_cell_only": True,
+    },
 }
 
 VOICE = "en-US-AriaNeural"

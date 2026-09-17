@@ -65,7 +65,7 @@ const PHONEME_REF: Record<string, string> = {
 
 // Sections whose tables get 🔊 buttons; audio lives at /audio/<section>/
 // Keep in sync with scripts/generate_audio.py SECTIONS
-const AUDIO_SECTIONS = ['stage0', 'roots'] as const
+const AUDIO_SECTIONS = ['stage0', 'roots', 'pos'] as const
 type AudioSection = (typeof AUDIO_SECTIONS)[number]
 
 let manifestCache = new Map<AudioSection, Promise<ManifestSets | null>>()
@@ -232,9 +232,10 @@ function decorateCell(td: HTMLElement, manifest: ManifestSets): void {
   const allowLetters = LETTER_TABLE_HEADER_RE.test(headerText)
   const allowPhonemes = currentSection() === 'stage0'
 
-  // roots section: only whole-cell single English words get a button —
+  // roots/pos sections: only whole-cell single English words get a button —
   // 拆解 fragments ("in-(向内)+spect(看)") and in-cell example sentences stay clean
-  if (currentSection() === 'roots') {
+  const section = currentSection()
+  if (section === 'roots' || section === 'pos') {
     const stripped = (td.textContent ?? '')
       .replace(IPA_SPAN_RE, '')
       .trim()

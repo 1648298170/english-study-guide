@@ -43,6 +43,23 @@ export default defineConfig({
             ]
           },
           {
+            text: '词性课 · 英语的十种词',
+            collapsed: false,
+            items: [
+              { text: '课程说明', link: '/course/pos/' },
+              { text: '第 1 课 · 词类地图', link: '/course/pos/unit-01' },
+              { text: '第 2 课 · 名词', link: '/course/pos/unit-02' },
+              { text: '第 3 课 · 动词', link: '/course/pos/unit-03' },
+              { text: '第 4 课 · 形容词', link: '/course/pos/unit-04' },
+              { text: '第 5 课 · 副词', link: '/course/pos/unit-05' },
+              { text: '第 6 课 · 代词与冠词', link: '/course/pos/unit-06' },
+              { text: '第 7 课 · 介词与连词', link: '/course/pos/unit-07' },
+              { text: '第 8 课 · 数词感叹词与总结', link: '/course/pos/unit-08' },
+              { text: '第 9 课 · 构词入门：变身术', link: '/course/pos/unit-09' },
+              { text: '第 10 课 · 综合实战：标注与完形', link: '/course/pos/unit-10' }
+            ]
+          },
+          {
             text: 'A1 课程 · 入门英语',
             collapsed: false,
             items: [
