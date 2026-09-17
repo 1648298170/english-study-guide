@@ -28,9 +28,15 @@ interface AudioManifest {
   letters: string[]
 }
 
+// docs/public/audio/stage0/phonemes.json — ipa -> isolated phoneme wav
+interface PhonemeFiles {
+  [ipa: string]: string
+}
+
 interface ManifestSets {
   words: Set<string>
   letters: Set<string>
+  phonemes: Record<string, string>
 }
 
 // Keep in sync with scripts/generate_audio.py (TOKEN_RE / IPA_SPAN_RE)
@@ -79,14 +85,21 @@ function currentSection(): AudioSection | null {
 function loadManifest(section: AudioSection): Promise<ManifestSets | null> {
   let cached = manifestCache.get(section)
   if (!cached) {
-    cached = fetch(withBase(`/audio/${section}/manifest.json`))
-      .then((res) => {
+    cached = Promise.all([
+      fetch(withBase(`/audio/${section}/manifest.json`)).then((res) => {
         if (!res.ok) throw new Error(`manifest HTTP ${res.status}`)
         return res.json() as Promise<AudioManifest>
-      })
-      .then((m) => ({
+      }),
+      section === 'stage0'
+        ? fetch(withBase('/audio/stage0/phonemes.json'))
+            .then((res) => (res.ok ? (res.json() as Promise<PhonemeFiles>) : {}))
+            .catch(() => ({}))
+        : Promise.resolve({})
+    ])
+      .then(([m, ph]) => ({
         words: new Set((m.words ?? []).map((w) => w.toLowerCase())),
-        letters: new Set((m.letters ?? []).map((l) => l.toLowerCase()))
+        letters: new Set((m.letters ?? []).map((l) => l.toLowerCase())),
+        phonemes: ph ?? {}
       }))
       .catch((err) => {
         console.warn('[audio] manifest unavailable:', err)
@@ -108,11 +121,24 @@ function makeButton(word: string): HTMLButtonElement {
   return btn
 }
 
-function makePhonemeButton(ipa: string, refWord: string): HTMLButtonElement {
+function makePhonemeButton(
+  ipa: string,
+  refWord: string,
+  wavFile?: string
+): HTMLButtonElement {
   const btn = makeButton(refWord)
   btn.className = 'jaudio-btn jaudio-ph'
-  btn.setAttribute('aria-label', `听 ${ipa} 的示范发音（${refWord}）`)
-  btn.setAttribute('title', `播放示范词：${refWord}`)
+  if (wavFile) {
+    btn.dataset.audio = withBase(`/audio/stage0/${wavFile}`)
+    btn.setAttribute('aria-label', `听 ${ipa} 的音素发音`)
+    btn.setAttribute(
+      'title',
+      `音素 ${ipa}（合成音色）· 旁边 🔊 是示范词 ${refWord}`
+    )
+  } else {
+    btn.setAttribute('aria-label', `听 ${ipa} 的示范发音（${refWord}）`)
+    btn.setAttribute('title', `播放示范词：${refWord}`)
+  }
   btn.textContent = '▶'
   return btn
 }
@@ -123,6 +149,7 @@ interface DecorateAction {
   kind: 'word' | 'ph'
   token: string
   ipa?: string
+  file?: string
 }
 
 function decorateTextNode(
@@ -162,7 +189,14 @@ function decorateTextNode(
     for (const [a, b, raw] of spans) {
       const ref = PHONEME_REF[raw]
       if (ref && manifest.words.has(ref)) {
-        actions.push({ start: b, end: b, kind: 'ph', token: ref, ipa: raw })
+        actions.push({
+          start: b,
+          end: b,
+          kind: 'ph',
+          token: ref,
+          ipa: raw,
+          file: manifest.phonemes[raw]
+        })
       }
     }
   }
@@ -179,7 +213,7 @@ function decorateTextNode(
       frag.append(act.token) // keep the visible word/letter itself
       frag.append(makeButton(act.token))
     } else {
-      frag.append(makePhonemeButton(act.ipa ?? '', act.token))
+      frag.append(makePhonemeButton(act.ipa ?? '', act.token, act.file))
     }
     last = Math.max(last, act.end)
     added = true
@@ -266,9 +300,13 @@ function play(word: string, btn: HTMLElement): void {
   if (!section) return
   stopCurrent()
 
-  const audio = new Audio(
-    withBase(`/audio/${section}/${encodeURIComponent(word.toLowerCase())}.mp3`)
+  // explicit source (phoneme wav) wins; fall back to the exemplar word mp3
+  // if it fails to load
+  const fallback = withBase(
+    `/audio/${section}/${encodeURIComponent(word.toLowerCase())}.mp3`
   )
+  const src = btn.dataset.audio || fallback
+  const audio = new Audio(src)
   currentAudio = audio
   loading = true
   btn.classList.add('playing')
@@ -282,7 +320,23 @@ function play(word: string, btn: HTMLElement): void {
   }
   audio.addEventListener('playing', unlock)
   audio.addEventListener('ended', finish)
-  audio.addEventListener('error', finish)
+  audio.addEventListener('error', () => {
+    if (src !== fallback) {
+      // phoneme wav missing -> retry with the exemplar word
+      try {
+        audio.pause()
+      } catch {
+        /* noop */
+      }
+      const retry = new Audio(fallback)
+      currentAudio = retry
+      retry.addEventListener('ended', finish)
+      retry.addEventListener('error', finish)
+      retry.play().catch(finish)
+      return
+    }
+    finish()
+  })
   audio.play().catch(() => {
     stopCurrent()
     finish()
