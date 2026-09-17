@@ -38,20 +38,29 @@ const TOKEN_RE = /[A-Za-z][A-Za-z'-]*/g
 const IPA_SPAN_RE = /\/[^/]*?\//g
 const LETTER_TABLE_HEADER_RE = /大写|小写|字母/
 
-let manifestCache: Promise<ManifestSets | null> | null = null
+// Sections whose tables get 🔊 buttons; audio lives at /audio/<section>/
+// Keep in sync with scripts/generate_audio.py SECTIONS
+const AUDIO_SECTIONS = ['stage0', 'roots'] as const
+type AudioSection = (typeof AUDIO_SECTIONS)[number]
+
+let manifestCache = new Map<AudioSection, Promise<ManifestSets | null>>()
 let currentAudio: HTMLAudioElement | null = null
 let loading = false
 let clickListenerBound = false
 
-function isStage0Page(): boolean {
-  return typeof window !== 'undefined'
-    ? window.location.pathname.includes('/course/stage0/')
-    : false
+function currentSection(): AudioSection | null {
+  if (typeof window === 'undefined') return null
+  const p = window.location.pathname
+  for (const s of AUDIO_SECTIONS) {
+    if (p.includes(`/course/${s}/`)) return s
+  }
+  return null
 }
 
-function loadManifest(): Promise<ManifestSets | null> {
-  if (!manifestCache) {
-    manifestCache = fetch(withBase('/audio/stage0/manifest.json'))
+function loadManifest(section: AudioSection): Promise<ManifestSets | null> {
+  let cached = manifestCache.get(section)
+  if (!cached) {
+    cached = fetch(withBase(`/audio/${section}/manifest.json`))
       .then((res) => {
         if (!res.ok) throw new Error(`manifest HTTP ${res.status}`)
         return res.json() as Promise<AudioManifest>
@@ -62,11 +71,12 @@ function loadManifest(): Promise<ManifestSets | null> {
       }))
       .catch((err) => {
         console.warn('[audio] manifest unavailable:', err)
-        manifestCache = null // allow retry on next navigation
+        manifestCache.delete(section) // allow retry on next navigation
         return null
       })
+    manifestCache.set(section, cached)
   }
-  return manifestCache
+  return cached
 }
 
 function makeButton(word: string): HTMLButtonElement {
@@ -128,6 +138,15 @@ function decorateCell(td: HTMLElement, manifest: ManifestSets): void {
   const headerText = table?.querySelector('thead')?.textContent ?? ''
   const allowLetters = LETTER_TABLE_HEADER_RE.test(headerText)
 
+  // roots section: only whole-cell single English words get a button —
+  // 拆解 fragments ("in-(向内)+spect(看)") and in-cell example sentences stay clean
+  if (currentSection() === 'roots') {
+    const stripped = (td.textContent ?? '')
+      .replace(IPA_SPAN_RE, '')
+      .trim()
+    if (!/^[A-Za-z][A-Za-z'-]*$/.test(stripped)) return
+  }
+
   const walker = document.createTreeWalker(td, NodeFilter.SHOW_TEXT)
   const textNodes: Text[] = []
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -145,8 +164,9 @@ function decoratePage(manifest: ManifestSets): void {
 }
 
 async function enhance(): Promise<void> {
-  if (!isStage0Page()) return
-  const manifest = await loadManifest()
+  const section = currentSection()
+  if (!section) return
+  const manifest = await loadManifest(section)
   if (!manifest) return
   // let VitePress finish rendering the route before scanning the DOM
   await nextTick()
@@ -168,10 +188,12 @@ function stopCurrent(): void {
 
 function play(word: string, btn: HTMLElement): void {
   if (loading) return // guard double-taps while an audio is loading
+  const section = currentSection()
+  if (!section) return
   stopCurrent()
 
   const audio = new Audio(
-    withBase(`/audio/stage0/${encodeURIComponent(word.toLowerCase())}.mp3`)
+    withBase(`/audio/${section}/${encodeURIComponent(word.toLowerCase())}.mp3`)
   )
   currentAudio = audio
   loading = true

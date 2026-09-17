@@ -120,6 +120,25 @@ export default defineConfig({
               { text: '第 6 课 · hedging 与话语标记', link: '/course/c1/unit-06' },
               { text: '第 7 课 · C1 综合复习与毕业自测', link: '/course/c1/unit-07' }
             ]
+          },
+          {
+            text: '词根词缀课 · 词汇的偏旁部首',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/roots/' },
+              { text: '第 1 课 · 入门：两个世界', link: '/course/roots/unit-01' },
+              { text: '第 2 课 · spect · dict · duc', link: '/course/roots/unit-02' },
+              { text: '第 3 课 · port · mit · ject', link: '/course/roots/unit-03' },
+              { text: '第 4 课 · struct · form · fac', link: '/course/roots/unit-04' },
+              { text: '第 5 课 · vis · aud · cred · sci', link: '/course/roots/unit-05' },
+              { text: '第 6 课 · mov · stat · pos · sist', link: '/course/roots/unit-06' },
+              { text: '第 7 课 · cap · ten · ceive', link: '/course/roots/unit-07' },
+              { text: '第 8 课 · 前缀（上）：方向位置', link: '/course/roots/unit-08' },
+              { text: '第 9 课 · 前缀（下）：否定程度', link: '/course/roots/unit-09' },
+              { text: '第 10 课 · 后缀：词性密码', link: '/course/roots/unit-10' },
+              { text: '第 11 课 · 希腊词根', link: '/course/roots/unit-11' },
+              { text: '第 12 课 · 综合实战', link: '/course/roots/unit-12' }
+            ]
           }
         ]
       },
