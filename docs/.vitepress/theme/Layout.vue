@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vitepress'
 import HomeHeroInfo from './components/HomeHeroInfo.vue'
 import HomeTerminal from './components/HomeTerminal.vue'
 import HomeStats from './components/HomeStats.vue'
 import HomePillars from './components/HomePillars.vue'
 import HomeStages from './components/HomeStages.vue'
 import HomeCta from './components/HomeCta.vue'
+import { setupAudioEnhancer } from './audio'
 
 const { Layout } = DefaultTheme
+
+// stage0 课程表格的单词点读按钮（🔊）
+setupAudioEnhancer(useRouter())
 
 let cleanup = () => {}
 
