@@ -38,6 +38,25 @@ const TOKEN_RE = /[A-Za-z][A-Za-z'-]*/g
 const IPA_SPAN_RE = /\/[^/]*?\//g
 const LETTER_TABLE_HEADER_RE = /大写|小写|字母/
 
+// 48 phonemes → reference exemplar word (audio reused from the word corpus).
+// Isolated phonemes cannot be synthesized by word-level TTS, so clicking a
+// phoneme plays its canonical example word from the course's own tables.
+const PHONEME_REF: Record<string, string> = {
+  '/ɪ/': 'sit', '/e/': 'bed', '/æ/': 'cat', '/ɒ/': 'dog', '/ʊ/': 'book',
+  '/ʌ/': 'cup', '/ə/': 'about',
+  '/iː/': 'see', '/ɑː/': 'car', '/ɔː/': 'ball', '/uː/': 'food', '/ɜː/': 'bird',
+  '/eɪ/': 'name', '/aɪ/': 'time', '/ɔɪ/': 'boy', '/oʊ/': 'go', '/aʊ/': 'now',
+  '/ɪr/': 'here', '/er/': 'hair', '/ʊr/': 'tour',
+  '/p/': 'pen', '/b/': 'bag', '/t/': 'ten', '/d/': 'dog', '/k/': 'key',
+  '/g/': 'girl', '/f/': 'fish', '/v/': 'very', '/θ/': 'think', '/ð/': 'this',
+  '/s/': 'sun', '/z/': 'zoo', '/ʃ/': 'she', '/ʒ/': 'usually', '/h/': 'hand',
+  '/r/': 'red',
+  '/tʃ/': 'chair', '/dʒ/': 'jump', '/tr/': 'tree', '/dr/': 'dream',
+  '/ts/': 'cats', '/dz/': 'friends',
+  '/m/': 'mother', '/n/': 'nose', '/ŋ/': 'sing', '/l/': 'look',
+  '/w/': 'water', '/j/': 'yes'
+}
+
 // Sections whose tables get 🔊 buttons; audio lives at /audio/<section>/
 // Keep in sync with scripts/generate_audio.py SECTIONS
 const AUDIO_SECTIONS = ['stage0', 'roots'] as const
@@ -89,25 +108,42 @@ function makeButton(word: string): HTMLButtonElement {
   return btn
 }
 
+function makePhonemeButton(ipa: string, refWord: string): HTMLButtonElement {
+  const btn = makeButton(refWord)
+  btn.className = 'jaudio-btn jaudio-ph'
+  btn.setAttribute('aria-label', `听 ${ipa} 的示范发音（${refWord}）`)
+  btn.setAttribute('title', `播放示范词：${refWord}`)
+  btn.textContent = '▶'
+  return btn
+}
+
+interface DecorateAction {
+  start: number
+  end: number
+  kind: 'word' | 'ph'
+  token: string
+  ipa?: string
+}
+
 function decorateTextNode(
   node: Text,
   manifest: ManifestSets,
-  allowLetters: boolean
+  allowLetters: boolean,
+  allowPhonemes: boolean
 ): void {
   const text = node.nodeValue ?? ''
-  if (!/[A-Za-z]/.test(text)) return
+  if (!text) return
+  if (!/[A-Za-z/]/.test(text)) return
 
   // compute IPA spans so tokens inside /.../ are ignored
-  const spans: Array<[number, number]> = []
+  const spans: Array<[number, number, string]> = []
   for (const m of text.matchAll(IPA_SPAN_RE)) {
-    spans.push([m.index ?? 0, (m.index ?? 0) + m[0].length])
+    spans.push([m.index ?? 0, (m.index ?? 0) + m[0].length, m[0]])
   }
   const inIpa = (start: number, end: number) =>
     spans.some(([a, b]) => start < b && end > a)
 
-  const frag = document.createDocumentFragment()
-  let last = 0
-  let added = false
+  const actions: DecorateAction[] = []
   for (const m of text.matchAll(TOKEN_RE)) {
     const token = m[0]
     const start = m.index ?? 0
@@ -118,11 +154,34 @@ function decorateTextNode(
       token.length >= 2
         ? manifest.words.has(lower)
         : allowLetters && manifest.letters.has(lower)
-    if (!hit) continue
-    frag.append(text.slice(last, start))
-    frag.append(token) // keep the visible word/letter itself
-    frag.append(makeButton(token))
-    last = end
+    if (hit) actions.push({ start, end, kind: 'word', token })
+  }
+  // phoneme spans (exact match like "/æ/") get a zero-width insertion button
+  // placed right AFTER the span
+  if (allowPhonemes) {
+    for (const [a, b, raw] of spans) {
+      const ref = PHONEME_REF[raw]
+      if (ref && manifest.words.has(ref)) {
+        actions.push({ start: b, end: b, kind: 'ph', token: ref, ipa: raw })
+      }
+    }
+  }
+  if (!actions.length) return
+  actions.sort((x, y) => x.start - y.start || x.end - y.end)
+
+  const frag = document.createDocumentFragment()
+  let last = 0
+  let added = false
+  for (const act of actions) {
+    if (act.start < last) continue // overlap guard
+    frag.append(text.slice(last, act.start))
+    if (act.kind === 'word') {
+      frag.append(act.token) // keep the visible word/letter itself
+      frag.append(makeButton(act.token))
+    } else {
+      frag.append(makePhonemeButton(act.ipa ?? '', act.token))
+    }
+    last = Math.max(last, act.end)
     added = true
   }
   if (!added) return
@@ -137,6 +196,7 @@ function decorateCell(td: HTMLElement, manifest: ManifestSets): void {
   const table = td.closest('table')
   const headerText = table?.querySelector('thead')?.textContent ?? ''
   const allowLetters = LETTER_TABLE_HEADER_RE.test(headerText)
+  const allowPhonemes = currentSection() === 'stage0'
 
   // roots section: only whole-cell single English words get a button —
   // 拆解 fragments ("in-(向内)+spect(看)") and in-cell example sentences stay clean
@@ -153,7 +213,7 @@ function decorateCell(td: HTMLElement, manifest: ManifestSets): void {
     textNodes.push(n as Text)
   }
   for (const node of textNodes) {
-    decorateTextNode(node, manifest, allowLetters)
+    decorateTextNode(node, manifest, allowLetters, allowPhonemes)
   }
 }
 
@@ -161,6 +221,20 @@ function decoratePage(manifest: ManifestSets): void {
   document
     .querySelectorAll<HTMLElement>('.vp-doc table td')
     .forEach((td) => decorateCell(td, manifest))
+
+  // stage0 headings like "## /ɪ/：松弛短促的「衣」" get a phoneme button too
+  if (currentSection() === 'stage0') {
+    document
+      .querySelectorAll<HTMLElement>('.vp-doc h2, .vp-doc h3')
+      .forEach((h) => {
+        if (h.dataset.audioDone) return
+        h.dataset.audioDone = '1'
+        const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT)
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+          decorateTextNode(n as Text, manifest, false, true)
+        }
+      })
+  }
 }
 
 async function enhance(): Promise<void> {
