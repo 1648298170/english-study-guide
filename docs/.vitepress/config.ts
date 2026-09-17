@@ -139,6 +139,23 @@ export default defineConfig({
               { text: '第 11 课 · 希腊词根', link: '/course/roots/unit-11' },
               { text: '第 12 课 · 综合实战', link: '/course/roots/unit-12' }
             ]
+          },
+          {
+            text: '句子拆解课 · 长难句与翻译',
+            collapsed: true,
+            items: [
+              { text: '课程说明', link: '/course/parsing/' },
+              { text: '第 1 课 · 句子的骨架与血肉', link: '/course/parsing/unit-01' },
+              { text: '第 2 课 · 拆句五步法', link: '/course/parsing/unit-02' },
+              { text: '第 3 课 · 并列结构', link: '/course/parsing/unit-03' },
+              { text: '第 4 课 · 定语从句拆解', link: '/course/parsing/unit-04' },
+              { text: '第 5 课 · 状语与介词短语', link: '/course/parsing/unit-05' },
+              { text: '第 6 课 · 名词性从句', link: '/course/parsing/unit-06' },
+              { text: '第 7 课 · 非谓语动词', link: '/course/parsing/unit-07' },
+              { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
+              { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
+              { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
+            ]
           }
         ]
       },
