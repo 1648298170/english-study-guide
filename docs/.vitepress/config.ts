@@ -23,6 +23,14 @@ export default defineConfig({
     ],
     sidebar: [
       {
+        text: '开始之前',
+        items: [
+          { text: '如何使用本文档', link: '/guide/start' },
+          { text: '总览：全程路线图', link: '/guide/roadmap' },
+          { text: '五大核心原则', link: '/guide/principles' }
+        ]
+      },
+      {
         text: '英语课程',
         items: [
           { text: '课程总览', link: '/course/' },
@@ -165,6 +173,25 @@ export default defineConfig({
         ]
       },
       {
+        text: '语法详解课 · 第二遍语法',
+        collapsed: true,
+        items: [
+          { text: '课程说明', link: '/course/grammar/' },
+          { text: '第 1 课 · 时态全景图', link: '/course/grammar/unit-01' },
+          { text: '第 2 课 · 主谓一致', link: '/course/grammar/unit-02' },
+          { text: '第 3 课 · 情态完成式', link: '/course/grammar/unit-03' },
+          { text: '第 4 课 · 反意疑问句', link: '/course/grammar/unit-04' },
+          { text: '第 5 课 · 感叹句与强调', link: '/course/grammar/unit-05' },
+          { text: '第 6 课 · it 的五大用法', link: '/course/grammar/unit-06' },
+          { text: '第 7 课 · so 与 such', link: '/course/grammar/unit-07' },
+          { text: '第 8 课 · as 全家桶', link: '/course/grammar/unit-08' },
+          { text: '第 9 课 · 非谓语深化', link: '/course/grammar/unit-09' },
+          { text: '第 10 课 · 被动语态深化', link: '/course/grammar/unit-10' },
+          { text: '第 11 课 · 独立主格与 with', link: '/course/grammar/unit-11' },
+          { text: '第 12 课 · 50 题考点闯关', link: '/course/grammar/unit-12' }
+        ]
+      },
+      {
         text: '句子拆解课 · 长难句与翻译',
         collapsed: true,
         items: [
@@ -179,14 +206,6 @@ export default defineConfig({
           { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
           { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
           { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
-        ]
-      },
-      {
-        text: '开始之前',
-        items: [
-          { text: '如何使用本文档', link: '/guide/start' },
-          { text: '总览：全程路线图', link: '/guide/roadmap' },
-          { text: '五大核心原则', link: '/guide/principles' }
         ]
       },
       {
