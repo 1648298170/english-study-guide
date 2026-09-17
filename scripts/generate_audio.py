@@ -133,8 +133,9 @@ async def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # (tts_text, output_path) — letters are spoken via their UPPERCASE form
+    # (isolated uppercase letters are read as letter names: "A" → /eɪ/)
     jobs = [(w, OUT_DIR / f"{w}.mp3") for w in sorted(words)]
-    jobs += [(ch, OUT_DIR / f"{ch}.mp3") for ch in letters]
+    jobs += [(ch.upper(), OUT_DIR / f"{ch}.mp3") for ch in letters]
 
     print(f"[2/3] synthesizing {len(jobs)} MP3s (voice={VOICE} rate={RATE}, "
           f"concurrency={CONCURRENCY}, retries={RETRIES})")

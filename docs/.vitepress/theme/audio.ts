@@ -110,6 +110,7 @@ function decorateTextNode(
         : allowLetters && manifest.letters.has(lower)
     if (!hit) continue
     frag.append(text.slice(last, start))
+    frag.append(token) // keep the visible word/letter itself
     frag.append(makeButton(token))
     last = end
     added = true
