@@ -16,9 +16,9 @@ export default defineConfig({
     siteTitle: '英语学习框架',
     nav: [
       { text: '首页', link: '/' },
-      { text: '英语课程', link: '/course/' },
       { text: '开始之前', link: '/guide/start' },
-      { text: '学习阶段', link: '/guide/stage-0' },
+      { text: '英语课程', link: '/course/' },
+      { text: '语法课程', link: '/course/a1/' },
       { text: '工具与专题', link: '/guide/toolbox' }
     ],
     sidebar: [
@@ -28,6 +28,18 @@ export default defineConfig({
           { text: '如何使用本文档', link: '/guide/start' },
           { text: '总览：全程路线图', link: '/guide/roadmap' },
           { text: '五大核心原则', link: '/guide/principles' }
+        ]
+      },
+      {
+        text: '框架 · 阶段详解',
+        items: [
+          { text: '阶段 0 · 启蒙期', link: '/guide/stage-0' },
+          { text: '阶段 1 · 地基期', link: '/guide/stage-1' },
+          { text: '阶段 2 · 积累期', link: '/guide/stage-2' },
+          { text: '阶段 3 · 成长期', link: '/guide/stage-3' },
+          { text: '阶段 4 · 突破期', link: '/guide/stage-4' },
+          { text: '阶段 5 · 精进期', link: '/guide/stage-5' },
+          { text: '阶段 6 · 精通期', link: '/guide/stage-6' }
         ]
       },
       {
@@ -206,18 +218,6 @@ export default defineConfig({
           { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
           { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
           { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
-        ]
-      },
-      {
-        text: '框架 · 阶段详解',
-        items: [
-          { text: '阶段 0 · 启蒙期', link: '/guide/stage-0' },
-          { text: '阶段 1 · 地基期', link: '/guide/stage-1' },
-          { text: '阶段 2 · 积累期', link: '/guide/stage-2' },
-          { text: '阶段 3 · 成长期', link: '/guide/stage-3' },
-          { text: '阶段 4 · 突破期', link: '/guide/stage-4' },
-          { text: '阶段 5 · 精进期', link: '/guide/stage-5' },
-          { text: '阶段 6 · 精通期', link: '/guide/stage-6' }
         ]
       },
       {
