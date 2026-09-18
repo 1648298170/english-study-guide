@@ -83,9 +83,15 @@ export default defineConfig({
               { text: '第 11 课 · 希腊词根', link: '/course/roots/unit-11' },
               { text: '第 12 课 · 综合实战', link: '/course/roots/unit-12' }
             ]
-          },
+          }
+        ]
+      },
+      {
+        text: '学习阶段（语法主线）',
+        collapsed: true,
+        items: [
           {
-            text: '词性课 · 英语的十种词',
+            text: '预备 · 词性课 · 英语的十种词',
             collapsed: true,
             items: [
               { text: '课程说明', link: '/course/pos/' },
@@ -100,13 +106,7 @@ export default defineConfig({
               { text: '第 9 课 · 构词入门：变身术', link: '/course/pos/unit-09' },
               { text: '第 10 课 · 综合实战：标注与完形', link: '/course/pos/unit-10' }
             ]
-          }
-        ]
-      },
-      {
-        text: '学习阶段（语法主线）',
-        collapsed: true,
-        items: [
+          },
           {
             text: '阶段 1 · A1 课程 · 入门英语',
             collapsed: true,
