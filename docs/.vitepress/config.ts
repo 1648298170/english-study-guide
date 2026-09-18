@@ -24,7 +24,7 @@ export default defineConfig({
     sidebar: [
       {
         text: '开始之前',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '如何使用本文档', link: '/guide/start' },
           { text: '总览：全程路线图', link: '/guide/roadmap' },
@@ -33,7 +33,7 @@ export default defineConfig({
       },
       {
         text: '框架 · 阶段详解',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '阶段 0 · 启蒙期', link: '/guide/stage-0' },
           { text: '阶段 1 · 地基期', link: '/guide/stage-1' },
@@ -46,7 +46,7 @@ export default defineConfig({
       },
       {
         text: '基础课程 · 音标与词汇',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '课程总览', link: '/course/' },
           {
@@ -88,7 +88,7 @@ export default defineConfig({
       },
       {
         text: '学习阶段（语法主线）',
-        collapsed: true,
+        collapsed: false,
         items: [
           {
             text: '预备 · 词性课 · 英语的十种词',
@@ -190,7 +190,7 @@ export default defineConfig({
       },
       {
         text: '语法详解课 · 第二遍语法',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '课程说明', link: '/course/grammar/' },
           { text: '第 1 课 · 时态全景图', link: '/course/grammar/unit-01' },
@@ -209,7 +209,7 @@ export default defineConfig({
       },
       {
         text: '句子拆解课 · 长难句与翻译',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '课程说明', link: '/course/parsing/' },
           { text: '第 1 课 · 句子的骨架与血肉', link: '/course/parsing/unit-01' },
@@ -228,7 +228,7 @@ export default defineConfig({
       },
       {
         text: '阅读理解课 · 从读懂到做对',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '课程说明', link: '/course/reading/' },
           { text: '第 1 课 · 阅读的本质', link: '/course/reading/unit-01' },
@@ -247,7 +247,7 @@ export default defineConfig({
       },
       {
         text: '写作课 · 从句子到文章',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '课程说明', link: '/course/writing/' },
           { text: '第 1 课 · 写作是什么与评分解密', link: '/course/writing/unit-01' },
@@ -266,7 +266,7 @@ export default defineConfig({
       },
       {
         text: '工具与专题',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: '词汇习得战略', link: '/guide/vocabulary' },
           { text: '语法学习顺序', link: '/guide/grammar' },
