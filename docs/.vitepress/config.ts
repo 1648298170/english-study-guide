@@ -217,26 +217,9 @@ export default defineConfig({
           { text: '第 7 课 · 非谓语动词', link: '/course/parsing/unit-07' },
           { text: '第 8 课 · 插入·同位·倒装', link: '/course/parsing/unit-08' },
           { text: '第 9 课 · 英译中技巧总则', link: '/course/parsing/unit-09' },
-          { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' }
-        ]
-      },
-      {
-        text: '写作课 · 从句子到文章',
-        collapsed: true,
-        items: [
-          { text: '课程说明', link: '/course/writing/' },
-          { text: '第 1 课 · 写作是什么与评分解密', link: '/course/writing/unit-01' },
-          { text: '第 2 课 · 五大句型造句', link: '/course/writing/unit-02' },
-          { text: '第 3 课 · 中式句子病诊室', link: '/course/writing/unit-03' },
-          { text: '第 4 课 · 段落：汉堡包结构', link: '/course/writing/unit-04' },
-          { text: '第 5 课 · 衔接与连贯', link: '/course/writing/unit-05' },
-          { text: '第 6 课 · 词汇升级', link: '/course/writing/unit-06' },
-          { text: '第 7 课 · 句式多样化', link: '/course/writing/unit-07' },
-          { text: '第 8 课 · 书信与邮件', link: '/course/writing/unit-08' },
-          { text: '第 9 课 · 议论文结构', link: '/course/writing/unit-09' },
-          { text: '第 10 课 · 议论文论证', link: '/course/writing/unit-10' },
-          { text: '第 11 课 · 图表作文', link: '/course/writing/unit-11' },
-          { text: '第 12 课 · 8 篇全流程实战', link: '/course/writing/unit-12' }
+          { text: '第 10 课 · 30 句闯关实战', link: '/course/parsing/unit-10' },
+          { text: '第 11 课 · 中译英（上）：组装五步', link: '/course/parsing/unit-11' },
+          { text: '第 12 课 · 中译英（下）：段落实战', link: '/course/parsing/unit-12' }
         ]
       },
       {
@@ -256,6 +239,25 @@ export default defineConfig({
           { text: '第 10 课 · 文体结构', link: '/course/reading/unit-10' },
           { text: '第 11 课 · 三篇综合精讲', link: '/course/reading/unit-11' },
           { text: '第 12 课 · 泛读计划与毕业', link: '/course/reading/unit-12' }
+        ]
+      },
+      {
+        text: '写作课 · 从句子到文章',
+        collapsed: true,
+        items: [
+          { text: '课程说明', link: '/course/writing/' },
+          { text: '第 1 课 · 写作是什么与评分解密', link: '/course/writing/unit-01' },
+          { text: '第 2 课 · 五大句型造句', link: '/course/writing/unit-02' },
+          { text: '第 3 课 · 中式句子病诊室', link: '/course/writing/unit-03' },
+          { text: '第 4 课 · 段落：汉堡包结构', link: '/course/writing/unit-04' },
+          { text: '第 5 课 · 衔接与连贯', link: '/course/writing/unit-05' },
+          { text: '第 6 课 · 词汇升级', link: '/course/writing/unit-06' },
+          { text: '第 7 课 · 句式多样化', link: '/course/writing/unit-07' },
+          { text: '第 8 课 · 书信与邮件', link: '/course/writing/unit-08' },
+          { text: '第 9 课 · 议论文结构', link: '/course/writing/unit-09' },
+          { text: '第 10 课 · 议论文论证', link: '/course/writing/unit-10' },
+          { text: '第 11 课 · 图表作文', link: '/course/writing/unit-11' },
+          { text: '第 12 课 · 8 篇全流程实战', link: '/course/writing/unit-12' }
         ]
       },
       {
