@@ -221,6 +221,44 @@ export default defineConfig({
         ]
       },
       {
+        text: '写作课 · 从句子到文章',
+        collapsed: true,
+        items: [
+          { text: '课程说明', link: '/course/writing/' },
+          { text: '第 1 课 · 写作是什么与评分解密', link: '/course/writing/unit-01' },
+          { text: '第 2 课 · 五大句型造句', link: '/course/writing/unit-02' },
+          { text: '第 3 课 · 中式句子病诊室', link: '/course/writing/unit-03' },
+          { text: '第 4 课 · 段落：汉堡包结构', link: '/course/writing/unit-04' },
+          { text: '第 5 课 · 衔接与连贯', link: '/course/writing/unit-05' },
+          { text: '第 6 课 · 词汇升级', link: '/course/writing/unit-06' },
+          { text: '第 7 课 · 句式多样化', link: '/course/writing/unit-07' },
+          { text: '第 8 课 · 书信与邮件', link: '/course/writing/unit-08' },
+          { text: '第 9 课 · 议论文结构', link: '/course/writing/unit-09' },
+          { text: '第 10 课 · 议论文论证', link: '/course/writing/unit-10' },
+          { text: '第 11 课 · 图表作文', link: '/course/writing/unit-11' },
+          { text: '第 12 课 · 8 篇全流程实战', link: '/course/writing/unit-12' }
+        ]
+      },
+      {
+        text: '阅读理解课 · 从读懂到做对',
+        collapsed: true,
+        items: [
+          { text: '课程说明', link: '/course/reading/' },
+          { text: '第 1 课 · 阅读的本质', link: '/course/reading/unit-01' },
+          { text: '第 2 课 · 意群阅读', link: '/course/reading/unit-02' },
+          { text: '第 3 课 · 猜词策略', link: '/course/reading/unit-03' },
+          { text: '第 4 课 · 长难句阅读', link: '/course/reading/unit-04' },
+          { text: '第 5 课 · 主旨题', link: '/course/reading/unit-05' },
+          { text: '第 6 课 · 细节题', link: '/course/reading/unit-06' },
+          { text: '第 7 课 · 推理题', link: '/course/reading/unit-07' },
+          { text: '第 8 课 · 词义题与指代题', link: '/course/reading/unit-08' },
+          { text: '第 9 课 · 作者态度题', link: '/course/reading/unit-09' },
+          { text: '第 10 课 · 文体结构', link: '/course/reading/unit-10' },
+          { text: '第 11 课 · 三篇综合精讲', link: '/course/reading/unit-11' },
+          { text: '第 12 课 · 泛读计划与毕业', link: '/course/reading/unit-12' }
+        ]
+      },
+      {
         text: '工具与专题',
         items: [
           { text: '词汇习得战略', link: '/guide/vocabulary' },
