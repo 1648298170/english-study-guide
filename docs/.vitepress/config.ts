@@ -26,9 +26,10 @@ export default defineConfig({
         text: '开始之前',
         collapsed: false,
         items: [
-          { text: '如何使用本文档', link: '/guide/start' },
+          { text: '如何使用本站', link: '/guide/start' },
           { text: '总览：全程路线图', link: '/guide/roadmap' },
-          { text: '五大核心原则', link: '/guide/principles' }
+          { text: '五大核心原则', link: '/guide/principles' },
+          { text: '课程总览', link: '/course/' }
         ]
       },
       {
@@ -48,7 +49,6 @@ export default defineConfig({
         text: '基础课程 · 音标与词汇',
         collapsed: false,
         items: [
-          { text: '课程总览', link: '/course/' },
           {
             text: '启蒙课 · 音标与拼读',
             collapsed: true,
