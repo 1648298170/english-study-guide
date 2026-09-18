@@ -17,7 +17,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '开始之前', link: '/guide/start' },
-      { text: '英语课程', link: '/course/' },
+      { text: '课程总览', link: '/course/' },
       { text: '语法课程', link: '/course/a1/' },
       { text: '工具与专题', link: '/guide/toolbox' }
     ],
@@ -45,7 +45,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '英语课程',
+        text: '基础课程 · 音标与词汇',
         collapsed: true,
         items: [
           { text: '课程总览', link: '/course/' },
