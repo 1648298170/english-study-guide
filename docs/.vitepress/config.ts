@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+﻿import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   // GitHub Pages 部署在仓库子路径下；本地开发保持根路径
@@ -24,6 +24,7 @@ export default defineConfig({
     sidebar: [
       {
         text: '开始之前',
+        collapsed: true,
         items: [
           { text: '如何使用本文档', link: '/guide/start' },
           { text: '总览：全程路线图', link: '/guide/roadmap' },
@@ -32,6 +33,7 @@ export default defineConfig({
       },
       {
         text: '框架 · 阶段详解',
+        collapsed: true,
         items: [
           { text: '阶段 0 · 启蒙期', link: '/guide/stage-0' },
           { text: '阶段 1 · 地基期', link: '/guide/stage-1' },
@@ -44,11 +46,12 @@ export default defineConfig({
       },
       {
         text: '英语课程',
+        collapsed: true,
         items: [
           { text: '课程总览', link: '/course/' },
           {
             text: '启蒙课 · 音标与拼读',
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: '课程说明', link: '/course/stage0/' },
               { text: '第 1 课 · 字母与发音入门', link: '/course/stage0/01-alphabet' },
@@ -64,7 +67,7 @@ export default defineConfig({
           },
           {
             text: '词根词缀课 · 词汇的偏旁部首',
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: '课程说明', link: '/course/roots/' },
               { text: '第 1 课 · 入门：两个世界', link: '/course/roots/unit-01' },
@@ -83,7 +86,7 @@ export default defineConfig({
           },
           {
             text: '词性课 · 英语的十种词',
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: '课程说明', link: '/course/pos/' },
               { text: '第 1 课 · 词类地图', link: '/course/pos/unit-01' },
@@ -102,10 +105,11 @@ export default defineConfig({
       },
       {
         text: '学习阶段（语法主线）',
+        collapsed: true,
         items: [
           {
             text: '阶段 1 · A1 课程 · 入门英语',
-            collapsed: false,
+            collapsed: true,
             items: [
               { text: '课程说明', link: '/course/a1/' },
               { text: '第 1 课 · be 动词', link: '/course/a1/unit-01' },
@@ -262,6 +266,7 @@ export default defineConfig({
       },
       {
         text: '工具与专题',
+        collapsed: true,
         items: [
           { text: '词汇习得战略', link: '/guide/vocabulary' },
           { text: '语法学习顺序', link: '/guide/grammar' },
